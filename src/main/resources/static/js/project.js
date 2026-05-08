@@ -1,4 +1,4 @@
-const API    = 'http://localhost:8080';
+const API = 'https://web-production-b707.up.railway.app';
 const token  = localStorage.getItem('token');
 const user   = JSON.parse(localStorage.getItem('user') || '{}');
 const params = new URLSearchParams(window.location.search);

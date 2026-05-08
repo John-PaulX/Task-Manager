@@ -1,4 +1,4 @@
-const API = 'http://localhost:8080';
+const API = 'https://web-production-b707.up.railway.app';
 
 // If already logged in, go straight to dashboard
 if (localStorage.getItem('token')) {
