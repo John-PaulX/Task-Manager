@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project — Task Manager</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <h1 id="project-title">Loading...</h1>
+    <div class="navbar-right">
+        <span id="user-name"></span>
+        <button class="btn btn-outline" onclick="window.location.href='dashboard.html'">← Dashboard</button>
+        <button class="btn btn-danger" onclick="logout()">Logout</button>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div id="alert-box"></div>
+
+    <!-- Members -->
+    <div class="page-header">
+        <div>
+            <div class="section-title">Team Members</div>
+            <div class="members-list" id="members-list"></div>
+        </div>
+        <button class="btn btn-outline" onclick="openAddMemberModal()">+ Add Member</button>
+    </div>
+
+    <!-- Tasks Header -->
+    <div class="page-header">
+        <h2>Tasks</h2>
+        <button class="btn btn-primary" onclick="openCreateTaskModal()">+ New Task</button>
+    </div>
+
+    <!-- Task Columns -->
+    <div class="task-columns">
+        <div class="task-column">
+            <h3>📋 To Do</h3>
+            <div id="col-todo"></div>
+        </div>
+        <div class="task-column">
+            <h3>⚙️ In Progress</h3>
+            <div id="col-inprogress"></div>
+        </div>
+        <div class="task-column">
+            <h3>✅ Done</h3>
+            <div id="col-done"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Create Task Modal -->
+<div class="modal-overlay" id="task-modal">
+    <div class="modal">
+        <h3>Create New Task</h3>
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" id="task-title" placeholder="e.g. Design homepage">
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea id="task-desc" rows="2" placeholder="Optional details"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Priority</label>
+            <select id="task-priority">
+                <option value="LOW">Low</option>
+                <option value="MEDIUM" selected>Medium</option>
+                <option value="HIGH">High</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Due Date</label>
+            <input type="date" id="task-due">
+        </div>
+        <div class="form-group">
+            <label>Assign To (Member ID)</label>
+            <select id="task-assignee">
+                <option value="">Unassigned</option>
+            </select>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-outline" onclick="closeTaskModal()">Cancel</button>
+            <button class="btn btn-primary" onclick="createTask()">Create Task</button>
+        </div>
+    </div>
+</div>
+
+<!-- Add Member Modal -->
+<div class="modal-overlay" id="member-modal">
+    <div class="modal">
+        <h3>Add Member</h3>
+        <div class="form-group">
+            <label>Member Email</label>
+            <input type="email" id="member-email" placeholder="member@example.com">
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-outline" onclick="closeMemberModal()">Cancel</button>
+            <button class="btn btn-primary" onclick="addMember()">Add</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/project.js"></script>
+</body>
+</html>
